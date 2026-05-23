@@ -1,24 +1,30 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerInput))]
 
-// キーを押したら、移動する（重力でジャンプ）
-public class OnKeyPressMoveGravity : MonoBehaviour
+public class OnKeyPressMoveGravity2 : MonoBehaviour
 {
-    //-------------------------------------
-    public float speed = 5f;            //［スピード］
-    public float jumppower = 8f;        //［ジャンプ力］
-    public float checkDistance = 0.1f;  //［地面チェックの距離］
-    public float footOffset = 0.01f;    //［足元位置のオフセット］
-    //-------------------------------------
+    public float speed = 5f;
+
+    public float jumppower = 8f;
+
+    public float checkDistance = 0.1f;
+
+    public float footOffset = 0.01f;
+
     private Rigidbody2D    rbody;
+
     private Collider2D     col;
+
     private SpriteRenderer sr;
 
     private Vector2 moveInput = Vector2.zero;
+    
     private bool jumpRequested = false;
+
     private bool isGrounded = false;
+
     private bool isJumping = false;
 
     void Awake()
@@ -32,7 +38,6 @@ public class OnKeyPressMoveGravity : MonoBehaviour
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
-        // 移動方向にキャラを向ける
         if (moveInput.x != 0) sr.flipX = moveInput.x < 0;
     }
 
@@ -40,25 +45,22 @@ public class OnKeyPressMoveGravity : MonoBehaviour
     {
         if (isGrounded && !isJumping)   jumpRequested = true;
     }
+
     void Update()
     {
-        // 地面判定
         float myHeight = col.bounds.extents.y;
         float footy = transform.position.y - myHeight - footOffset;
         Vector2 startRay = new Vector2(transform.position.x, footy);
         isGrounded = Physics2D.Raycast(startRay, Vector2.down, checkDistance);
 
-        // ジャンプ中かどうかを更新
         if (rbody.linearVelocity.y <= 0)  isJumping = false;
     }
 
     void FixedUpdate()
     {
-        // 水平方向の速度設定
         float vx = moveInput.x * speed;
         rbody.linearVelocity = new Vector2(vx, rbody.linearVelocity.y);
 
-        // ジャンプ処理
         if (jumpRequested)
         {
             jumpRequested = false;
