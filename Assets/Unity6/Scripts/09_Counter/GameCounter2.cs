@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class GameCounter2 : MonoBehaviour
 {
-    public CounterType kind = CounterType.Keys;
+    public CounterType2 kind = CounterType2.Keys;
     public int startCount = 0;
 
-    public static Dictionary<CounterType, int> counters = new Dictionary<CounterType, int>();
+    public static Dictionary<CounterType2, int> counters = new Dictionary<CounterType2, int>();
 
     void Start()
     {
         counters[kind] = startCount;
     }
 }
-public enum CounterType 
-{
+public enum CounterType2 {
     Keys, Hearts, Miss, Score, Gold, ItemA, ItemB, ItemC
 }
