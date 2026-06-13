@@ -389,7 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newPrefab: {fileID: 8693224657584969892, guid: 8620892fcb7fa41468c5278f13fb28b5, type: 3}
-  intervalSec: 1
+  intervalSec: 0.1
   newZ: -5
 --- !u!212 &777418992
 SpriteRenderer:
@@ -610,6 +610,7 @@ GameObject:
   - component: {fileID: 1397167482}
   - component: {fileID: 1397167481}
   - component: {fileID: 1397167487}
+  - component: {fileID: 1397167488}
   m_Layer: 0
   m_Name: player1R_0_0
   m_TagString: Untagged
@@ -812,6 +813,20 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   tagName: enemy
   showObject: {fileID: 252382993}
+--- !u!114 &1397167488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397167480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73503f9d9b5ff284cbbfcc0f5222db2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 0}
+  tagName: enemy
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
