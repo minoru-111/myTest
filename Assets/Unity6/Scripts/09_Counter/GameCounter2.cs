@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameCounter2 : MonoBehaviour
 {
-    public CounterType2 kind = CounterType2.Keys;
+    private CounterType2 kind = CounterType2.Keys;
     public int startCount = 0;
 
     public static Dictionary<CounterType2, int> counters = new Dictionary<CounterType2, int>();
