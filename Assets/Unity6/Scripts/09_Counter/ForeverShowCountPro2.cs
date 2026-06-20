@@ -6,7 +6,7 @@ using TMPro;
 
 public class ForeverShowCountPro2: MonoBehaviour
 {
-    private CounterType2 kind = CounterType2.Keys;
+    public CounterType2 kind = CounterType2.Keys;
 
 
     void Update()
